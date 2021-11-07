@@ -34,7 +34,7 @@ func GetMigrations() []*gormigrate.Migration {
 					"description text not null, " +
 					"created_at timestamp not null, " +
 					"updated_at timestamp not null, " +
-					"deleted_at timestamp not null, " +
+					"deleted_at timestamp, " +
 					"general bool);"
 				return db.Exec(query).Error
 
@@ -48,8 +48,12 @@ func GetMigrations() []*gormigrate.Migration {
 			Migrate: func(db *gorm.DB) error {
 				query := "create table if not exists words (" +
 					"id bigserial not null constraint words_pk primary key, " +
-					"spelling text not null, " +
-					"definition text not null);"
+					"english_spelling text not null, " +
+					"french_spelling text not null, " +
+					"created_at timestamp not null, " +
+					"updated_at timestamp not null, " +
+					"deleted_at timestamp, " +
+					"definition text);"
 				return db.Exec(query).Error
 
 			},
@@ -66,7 +70,7 @@ func GetMigrations() []*gormigrate.Migration {
 					"word_id bigint not null\n\t\tconstraint topics_words_word_id_fk\n\t\t\treferences words, " +
 					"created_at timestamp not null, " +
 					"updated_at timestamp not null, " +
-					"deleted_at timestamp not null);"
+					"deleted_at timestamp);"
 				return db.Exec(query).Error
 
 			},
@@ -83,7 +87,7 @@ func GetMigrations() []*gormigrate.Migration {
 					"user_id bigint not null\n\t\tconstraint topics_users_user_id_fk\n\t\t\treferences users, " +
 					"created_at timestamp not null, " +
 					"updated_at timestamp not null, " +
-					"deleted_at timestamp not null);"
+					"deleted_at timestamp);"
 				return db.Exec(query).Error
 
 			},

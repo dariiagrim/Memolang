@@ -42,6 +42,7 @@ func (s *Server) configureRouter() {
 		AllowHeaders:    []string{"Origin", "Content-Type", "Authorization"},
 	}))
 	s.router.POST("/register", s.handleRegistration())
+	s.router.POST("internal/add/topics", s.internalHandleAddTopic())
 }
 
 func (s *Server) configureStore() error {

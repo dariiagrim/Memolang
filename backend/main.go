@@ -9,7 +9,6 @@ import (
 func main() {
 
 	cfg := configuration.GetConfiguration()
-
 	srv := server.NewServer(cfg)
 
 	if err := srv.Start(); err != nil {
