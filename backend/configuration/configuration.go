@@ -27,12 +27,12 @@ func GetConfiguration() *Configuration {
 	configuration = &Configuration{
 		ServerConfig: ServerConfig{
 			Host: "localhost",
-			Port: ":8080",
+			Port: ":8081",
 		},
 		StoreConfig: StoreConfig{
 			Host:     "localhost",
-			User:     "postgres",
-			Password: "qwerty",
+			User:     "dariia",
+			Password: "DDG256",
 			Name:     "memolang",
 			Port:     "5432",
 		},
